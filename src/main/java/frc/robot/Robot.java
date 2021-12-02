@@ -26,12 +26,12 @@ public class Robot extends TimedRobot {
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
-  private Drivetrain drive;
+  private Drivetrain drivetrain;
   private LogitechDualAction driverPad; 
 
   @Override
   public void robotInit() {
-    this.drive = new Drivetrain();
+    this.drivetrain = new Drivetrain();
     this.driverPad = new LogitechDualAction(RobotMap.DRIVER_PAD_PORT);
 
   }
@@ -53,6 +53,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
+    this.drivetrain.drivetrain(this.driverPad.getValue(ControllerBindings.LEFT_STICK, ControllerBindings.Y_AXIS), this.driverPad.getValue(ControllerBindings.RIGHT_STICK, ControllerBindings.X_AXIS));
   }
 
   @Override

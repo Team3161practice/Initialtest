@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.controller.PIDController;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
@@ -9,7 +10,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import ca.team3161.lib.robot.subsystem.AbstractSubsystem;
 
 
-public class Drivetrain {
+public class Drivetrain extends Subsystem{
     // LEFT DRIVETRAIN
     private final WPI_TalonSRX leftMoterController1= new WPI_TalonSRX(RobotMap.TALON_LEFT_DRIVE_PORTS[0]);
     private final WPI_VictorSPX leftMoterController2 = new WPI_VictorSPX(RobotMap.TALON_LEFT_DRIVE_PORTS[1]);
@@ -29,8 +30,14 @@ public class Drivetrain {
 
     private final DifferentialDrive drive = new DifferentialDrive(lControllerGroup, rControllerGroup);
 
-    public void driveTrain(double leftSpeed, double rightSpeed){
+    public void drivetrain(double leftSpeed, double rightSpeed){
         this.drive.tankDrive(leftSpeed, rightSpeed);
+    }
+
+    @Override
+    protected void initDefaultCommand() {
+        // TODO Auto-generated method stub
+
     }
 
 
