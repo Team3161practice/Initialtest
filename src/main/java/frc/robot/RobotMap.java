@@ -4,9 +4,11 @@ public final class RobotMap {
     // Drive ports
     public static final int[] TALON_LEFT_DRIVE_PORTS = {10, 2, 8}; 
     public static final int[] TALON_RIGHT_DRIVE_PORTS = {9, 5, 6}; 
+    // 1 WPI_TalonSRX and 2 WPI_VictorSPX per side.
 
     // controller ports
     public static final int DRIVER_PAD_PORT = 0;
+
     public static final int OPERATOR_PAD_PORT = 1;
 
     // ENCODERS IF WE PUT THEM IN
