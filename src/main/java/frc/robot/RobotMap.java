@@ -11,7 +11,7 @@ public final class RobotMap {
 
     public static final int OPERATOR_PAD_PORT = 1;
 
-    // ENCODERS IF WE PUT THEM IN
+    // ENCODERS PORTS (check if the ports are correct)
     public static final int[] LEFT_ENCODER_PORTS = {2, 3}; 
     public static final int[] RIGHT_ENCODER_PORTS = {1, 0}; 
 
