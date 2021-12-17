@@ -9,7 +9,7 @@ public final class RobotMap {
     // controller ports
     public static final int DRIVER_PAD_PORT = 0;
 
-    public static final int OPERATOR_PAD_PORT = 1;
+    // public static final int OPERATOR_PAD_PORT = 1;
 
     // ENCODERS PORTS (check if the ports are correct)
     public static final int[] LEFT_ENCODER_PORTS = {2, 3}; 

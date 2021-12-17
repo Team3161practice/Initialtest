@@ -28,6 +28,7 @@ public class Robot extends TimedRobot {
    */
   private Drivetrain drivetrain;
   private LogitechDualAction driverPad; 
+  double error;
 
   @Override
   public void robotInit() {
