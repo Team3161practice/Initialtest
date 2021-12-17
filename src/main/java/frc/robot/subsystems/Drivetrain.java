@@ -30,8 +30,8 @@ public class Drivetrain extends Subsystem{
 
     // PID controller constant
     static private final double kp = 2;
-    static private final double ki = 0;
-    static private final double kd = 0;
+    // static private final double ki = 0;
+    // static private final double kd = 0;
     
     // PID controllers
     //private final PIDController leftPidController = new PIDController(kp, ki, kd);
