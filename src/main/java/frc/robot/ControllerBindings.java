@@ -1,10 +1,9 @@
 package frc.robot;
 
-import ca.team3161.lib.robot.TitanBot;
-import ca.team3161.lib.utils.controls.LogitechDualAction.LogitechButton;
+
 import ca.team3161.lib.utils.controls.LogitechDualAction.LogitechControl;
 import ca.team3161.lib.utils.controls.LogitechDualAction.LogitechAxis;
-import ca.team3161.lib.utils.controls.LogitechDualAction.DpadDirection;
+
 
 public final class ControllerBindings {
 

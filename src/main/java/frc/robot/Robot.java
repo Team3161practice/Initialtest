@@ -4,10 +4,16 @@
 
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+
+
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import frc.robot.subsystems.Drivetrain;
+
+import ca.team3161.lib.utils.controls.LogitechDualAction;
+import ca.team3161.lib.utils.controls.SquaredJoystickMode;
+
+
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -20,9 +26,15 @@ public class Robot extends TimedRobot {
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
+  private Drivetrain drivetrain;
+  private LogitechDualAction driverPad; 
 
   @Override
-  public void robotInit() {}
+  public void robotInit() {
+    this.drivetrain = new Drivetrain();
+    this.driverPad = new LogitechDualAction(RobotMap.DRIVER_PAD_PORT);
+
+  }
 
   @Override
   public void robotPeriodic() {}
@@ -34,10 +46,15 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {}
 
   @Override
-  public void teleopInit() {}
+  public void teleopInit() {
+    this.driverPad.setMode(ControllerBindings.LEFT_STICK, ControllerBindings.Y_AXIS, new SquaredJoystickMode());
+    this.driverPad.setMode(ControllerBindings.RIGHT_STICK, ControllerBindings.X_AXIS, new SquaredJoystickMode());
+  }
 
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+    this.drivetrain.drivetrain(this.driverPad.getValue(ControllerBindings.LEFT_STICK, ControllerBindings.Y_AXIS), this.driverPad.getValue(ControllerBindings.RIGHT_STICK, ControllerBindings.X_AXIS));
+  }
 
   @Override
   public void disabledInit() {}
