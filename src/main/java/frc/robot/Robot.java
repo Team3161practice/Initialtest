@@ -28,6 +28,7 @@ public class Robot extends TimedRobot {
    */
   private Drivetrain drivetrain;
   private LogitechDualAction driverPad; 
+  double error;
 
   @Override
   public void robotInit() {
@@ -53,7 +54,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    double error = this.drivetrain.leftEncoder.getDistance() - this.drivetrain.rightEncoder.getDistance();
+    error = this.drivetrain.leftEncoder.getDistance() - this.drivetrain.rightEncoder.getDistance();
     this.drivetrain.drivetrain(this.driverPad.getValue(ControllerBindings.LEFT_STICK, ControllerBindings.Y_AXIS), this.driverPad.getValue(ControllerBindings.RIGHT_STICK, ControllerBindings.X_AXIS), error);
     System.out.println(drivetrain.leftEncoder.getDistance());
 

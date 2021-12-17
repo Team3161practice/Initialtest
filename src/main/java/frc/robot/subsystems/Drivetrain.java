@@ -29,8 +29,8 @@ public class Drivetrain extends Subsystem{
 
     // PID controller constant
     static private final double kp = 2;
-    static private final double ki = 0;
-    static private final double kd = 0;
+    // static private final double ki = 0;
+    // static private final double kd = 0;
     
     // PID controllers
     //private final PIDController leftPidController = new PIDController(kp, ki, kd);
@@ -42,7 +42,8 @@ public class Drivetrain extends Subsystem{
 
     
     public void drivetrain(double leftSpeed, double rightSpeed, double error){
-        this.drive.arcadeDrive(-leftSpeed + kp * error, rightSpeed - kp * error);
+        double turn_power = kp * error;
+        this.drive.arcadeDrive(-leftSpeed + turn_power, rightSpeed - turn_power);
     }
 
     @Override
