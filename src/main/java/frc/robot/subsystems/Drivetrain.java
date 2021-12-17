@@ -5,10 +5,10 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 //import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
-
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-
+import edu.wpi.first.wpilibj.Encoder;
 
 
 public class Drivetrain extends Subsystem{
@@ -26,6 +26,12 @@ public class Drivetrain extends Subsystem{
 
     // Differential drive
     private final DifferentialDrive drive = new DifferentialDrive(lControllerGroup, rControllerGroup);
+
+
+    // Encoder Groups
+
+    private final Encoder leftEncoder = new Encoder(RobotMap.LEFT_ENCODER_PORTS[0], RobotMap.LEFT_ENCODER_PORTS[1]);
+    private final Encoder rightEncoder = new Encoder(RobotMap.RIGHT_ENCODER_PORTS[0], RobotMap.RIGHT_ENCODER_PORTS[1]);
 
     // PID controller constant
     //static private final double kp = 2;
