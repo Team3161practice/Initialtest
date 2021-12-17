@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.Encoder;
 
 
 
@@ -29,21 +28,17 @@ public class Drivetrain extends Subsystem{
     private final DifferentialDrive drive = new DifferentialDrive(lControllerGroup, rControllerGroup);
 
     // PID controller constant
-    static private final double kp = 2;
-    static private final double ki = 0;
-    static private final double kd = 0;
+    //static private final double kp = 2;
+    //static private final double ki = 0;
+    //static private final double kd = 0;
     
     // PID controllers
     //private final PIDController leftPidController = new PIDController(kp, ki, kd);
     //private final PIDController rightPidController = new PIDController(kp, ki, kd);
 
-    public final Encoder leftEncoder = new Encoder(RobotMap.LEFT_ENCODER_PORTS[0], RobotMap.LEFT_ENCODER_PORTS[1], false, Encoder.EncodingType.k2X);
-    public final Encoder rightEncoder = new Encoder(RobotMap.LEFT_ENCODER_PORTS[0], RobotMap.LEFT_ENCODER_PORTS[1], false, Encoder.EncodingType.k2X);
-
-
     
-    public void drivetrain(double leftSpeed, double rightSpeed, double error){
-        this.drive.arcadeDrive(-leftSpeed + kp * error, rightSpeed - kp * error);
+    public void drivetrain(double leftSpeed, double rightSpeed){
+        this.drive.arcadeDrive(-leftSpeed, rightSpeed);
     }
 
     @Override
