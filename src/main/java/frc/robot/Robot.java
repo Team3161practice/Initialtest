@@ -53,12 +53,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    double error = this.drivetrain.leftEncoder.getDistance() - this.drivetrain.rightEncoder.getDistance();
-    this.drivetrain.drivetrain(this.driverPad.getValue(ControllerBindings.LEFT_STICK, ControllerBindings.Y_AXIS), this.driverPad.getValue(ControllerBindings.RIGHT_STICK, ControllerBindings.X_AXIS), error);
-    System.out.println(drivetrain.leftEncoder.getDistance());
-    System.out.println(drivetrain.rightEncoder.getDistance());
-    System.out.println(drivetrain.leftEncoder.getDistance() - drivetrain.rightEncoder.getDistance());
-
+    this.drivetrain.drivetrain(this.driverPad.getValue(ControllerBindings.LEFT_STICK, ControllerBindings.Y_AXIS), this.driverPad.getValue(ControllerBindings.RIGHT_STICK, ControllerBindings.X_AXIS));
   }
 
   @Override
