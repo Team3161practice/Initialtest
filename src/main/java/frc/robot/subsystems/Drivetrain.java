@@ -27,24 +27,22 @@ public class Drivetrain extends Subsystem{
     // Differential drive
     private final DifferentialDrive drive = new DifferentialDrive(lControllerGroup, rControllerGroup);
 
-
-    // Encoder Groups
-
-    private final Encoder leftEncoder = new Encoder(RobotMap.LEFT_ENCODER_PORTS[0], RobotMap.LEFT_ENCODER_PORTS[1]);
-    private final Encoder rightEncoder = new Encoder(RobotMap.RIGHT_ENCODER_PORTS[0], RobotMap.RIGHT_ENCODER_PORTS[1]);
-
     // PID controller constant
-    //static private final double kp = 2;
-    //static private final double ki = 0;
-    //static private final double kd = 0;
+    static private final double kp = 2;
+    static private final double ki = 0;
+    static private final double kd = 0;
     
     // PID controllers
     //private final PIDController leftPidController = new PIDController(kp, ki, kd);
     //private final PIDController rightPidController = new PIDController(kp, ki, kd);
 
+    public final Encoder leftEncoder = new Encoder(RobotMap.LEFT_ENCODER_PORTS[0], RobotMap.LEFT_ENCODER_PORTS[1], false, Encoder.EncodingType.k2X);
+    public final Encoder rightEncoder = new Encoder(RobotMap.LEFT_ENCODER_PORTS[0], RobotMap.LEFT_ENCODER_PORTS[1], false, Encoder.EncodingType.k2X);
+
+
     
-    public void drivetrain(double leftSpeed, double rightSpeed){
-        this.drive.arcadeDrive(-leftSpeed, rightSpeed);
+    public void drivetrain(double leftSpeed, double rightSpeed, double error){
+        this.drive.arcadeDrive(-leftSpeed + kp * error, rightSpeed - kp * error);
     }
 
     @Override
