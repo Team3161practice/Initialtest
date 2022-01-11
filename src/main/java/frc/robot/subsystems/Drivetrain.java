@@ -35,17 +35,18 @@ public class Drivetrain extends Subsystem{
     //private final PIDController leftPidController = new PIDController(kp, ki, kd);
     //private final PIDController rightPidController = new PIDController(kp, ki, kd);
 
-    // public Encoder leftEncoder = new Encoder(RobotMap.LEFT_ENCODER_PORTS[0], RobotMap.LEFT_ENCODER_PORTS[1], false, Encoder.EncodingType.k2X);
-    // public Encoder rightEncoder = new Encoder(RobotMap.RIGHT_ENCODER_PORTS[0], RobotMap.RIGHT_ENCODER_PORTS[1], false, Encoder.EncodingType.k2X);
+    public Encoder leftEncoder;
+    public Encoder rightEncoder;
     // double error;
     // double turn_power;
 
     public void drivetrain(double leftSpeed, double rightSpeed){
+        
+        this.drive.arcadeDrive(-leftSpeed, rightSpeed, false);
+        leftEncoder = new Encoder(RobotMap.LEFT_ENCODER_PORTS[0], RobotMap.LEFT_ENCODER_PORTS[1], false, Encoder.EncodingType.k2X);
+        rightEncoder = new Encoder(RobotMap.RIGHT_ENCODER_PORTS[0], RobotMap.RIGHT_ENCODER_PORTS[1], false, Encoder.EncodingType.k2X);
         // error = leftEncoder.getDistance() - rightEncoder.getDistance();
         // turn_power = kp * error;
-        this.drive.arcadeDrive(-leftSpeed, rightSpeed, false);
-        // leftEncoder = new Encoder(RobotMap.LEFT_ENCODER_PORTS[0], RobotMap.LEFT_ENCODER_PORTS[1], false, Encoder.EncodingType.k2X);
-        // rightEncoder = new Encoder(RobotMap.RIGHT_ENCODER_PORTS[0], RobotMap.RIGHT_ENCODER_PORTS[1], false, Encoder.EncodingType.k2X);
     }
 
     @Override
